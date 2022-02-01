@@ -1,2 +1,2 @@
 # ecomproject
-Angular, Nest, Bootstrap based ecommerce website
+Angular, Nest, Bootstrap based ecommerce website.
