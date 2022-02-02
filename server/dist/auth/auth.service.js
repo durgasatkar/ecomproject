@@ -43,6 +43,9 @@ let AuthService = class AuthService {
             access_token: this.jwtService.sign(payload),
         };
     }
+    async register(user) {
+        return this.usersService.create(user);
+    }
 };
 AuthService = __decorate([
     (0, common_1.Injectable)(),

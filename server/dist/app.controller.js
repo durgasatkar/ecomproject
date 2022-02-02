@@ -17,12 +17,16 @@ const common_1 = require("@nestjs/common");
 const auth_service_1 = require("./auth/auth.service");
 const jwt_auth_guard_1 = require("./auth/jwt-auth.guard");
 const local_auth_guard_1 = require("./auth/local-auth.guard");
+const users_entity_1 = require("./users/users.entity");
 let AppController = class AppController {
     constructor(authService) {
         this.authService = authService;
     }
     async login(req) {
         return this.authService.login(req.user);
+    }
+    async register(user) {
+        return this.authService.register(user);
     }
     getProfile(req) {
         return req.user;
@@ -36,6 +40,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "login", null);
+__decorate([
+    (0, common_1.Post)('auth/register'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [users_entity_1.User]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "register", null);
 __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Get)('profile'),
