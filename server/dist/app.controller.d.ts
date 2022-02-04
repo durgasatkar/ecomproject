@@ -7,5 +7,10 @@ export declare class AppController {
         access_token: string;
     }>;
     register(user: User): Promise<void>;
+    uploadedFile(file: any): Promise<{
+        originalname: any;
+        filename: any;
+    }>;
+    getFile(image: any, res: any): any;
     getProfile(req: any): any;
 }

@@ -14,11 +14,12 @@ const app_service_1 = require("./app.service");
 const auth_module_1 = require("./auth/auth.module");
 const users_module_1 = require("./users/users.module");
 const contact_module_1 = require("./contact/contact.module");
+const product_module_1 = require("./product/product.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, users_module_1.UsersModule, typeorm_1.TypeOrmModule.forRoot(), contact_module_1.ContactModule],
+        imports: [auth_module_1.AuthModule, users_module_1.UsersModule, typeorm_1.TypeOrmModule.forRoot(), contact_module_1.ContactModule, product_module_1.ProductModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

@@ -1,0 +1,29 @@
+nav{
+    background-color: #f5e617 ;
+}
+
+.cnav ul li a{
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 700;
+    border-radius: .5rem;
+}
+.cnav ul li a:hover{
+    color: black;
+background-color: white;
+}
+.logo{
+    color: black;
+    font-weight: bolder;
+    font-size: 2rem;
+    text-transform: capitalize;
+  }
+
+  .logo i{
+    padding-right: .5rem;
+    color: white;   
+  }
+
+  .navbar-toggler span{
+    color: white;   
+  }

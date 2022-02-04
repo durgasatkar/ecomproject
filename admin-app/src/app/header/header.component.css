@@ -1,0 +1,9 @@
+.heading1{
+    text-align: center;
+    color:#f54e0c;
+    text-transform: capitalize;
+    padding:.5rem;
+    font-size: 3.0rem;
+    padding-bottom: 1rem;
+    background-color: blanchedalmond;
+  }
