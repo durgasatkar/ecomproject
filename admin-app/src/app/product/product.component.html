@@ -1,0 +1,52 @@
+<div class="container-fluid heading1">
+    <h2>add new product</h2>
+</div>
+
+<div class="form-group form-inline">
+    Full text search: <input class="form-control ml-2" type="text" [ngModel]="searchText" (ngModelChange)="search($event)"  [formControl]="filter"/>
+</div>
+
+<table class="table table-striped">
+<thead>
+<tr>
+  <th scope="col">Sr No</th>
+  <th scope="col">Id</th>
+  <th scope="col">Name</th>
+  <th scope="col">Description</th>
+  <th scope="col">Image</th>
+  <th scope="col">Price</th>
+  <th scope="col">Discount</th>
+  <th scope="col">Quantity</th>
+  <th scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let prd of recordsToShow index as i">
+  <th scope="row">{{ i + 1 }}</th>
+  <td>
+    <ngb-highlight [result]="prd.id| number" [term]="filter.value"></ngb-highlight>
+  </td>
+  <td><ngb-highlight [result]="prd.name" [term]="filter.value"></ngb-highlight></td>
+  <td><ngb-highlight [result]="prd.description" [term]="filter.value"></ngb-highlight></td>
+  <td>
+    <img src="{{host+'/images/'+prd.image}}" class="img-thumbnail" alt="Product Image">
+</td>
+<td>
+    {{prd.price}}
+</td>
+<td>
+    {{prd.discount}}
+</td>
+<td>
+    {{prd.quantity}}
+</td>
+  <td>
+    <a type="button" class="btn btn-sm btn-primary" routerLink="/update/{{prd.id}}" >Edit</a>
+  &nbsp;&nbsp;&nbsp;
+  <a type="button" class="btn btn-sm btn-danger" (click)="onDelete(prd)">Delete</a>
+  </td>
+</tr>
+</tbody>
+</table>
+
+

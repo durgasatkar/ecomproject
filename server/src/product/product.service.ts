@@ -13,9 +13,9 @@ export class ProductService {
         return await this.ProductsRepository.find();
       }
     
-      findOne(mobile: string): Promise<Product> {
+      findOne(id: number): Promise<Product> {
         return this.ProductsRepository.findOne({ where:
-            { mobile: mobile }
+            { id: id }
         });
       }
     

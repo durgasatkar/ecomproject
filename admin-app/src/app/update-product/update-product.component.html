@@ -1,0 +1,62 @@
+<div class="container-fluid heading1">
+    <h2>update product</h2>
+</div>
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <form  [formGroup]="productform">
+            <div class="mb-3">
+              <label for="inputMobileNO" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="inputMobileNO" formControlName="name" aria-describedby="mobileHelp">
+              <small class="form-text text-danger" *ngIf="isError('name')">
+                    Please provide valid product name.
+                </small>
+            </div>
+            <div class="mb-3">
+              <label for="desc" class="form-label">Product Description</label>
+              <input type="text" class="form-control" id="desc" formControlName="description" aria-describedby="mobileHelp">
+              <small class="form-text text-danger" *ngIf="isError('description')">
+                    Please provide valid product description.
+                </small>
+            </div>
+            <div class="mb-3">
+                <label for="img" class="form-label">Product Image</label>
+                <input type="file" class="form-control" id="img" (change)="onFileChange($event)" formControlName="image" aria-describedby="mobileHelp">
+                <small class="form-text text-danger" *ngIf="isError('image')">
+                      Please provide valid product image.
+                  </small>
+              </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Product Price</label>
+              <input type="number" class="form-control" id="price" formControlName="price" aria-describedby="mobileHelp">
+              <small class="form-text text-danger" *ngIf="isError('price')">
+                    Please provide valid product price.
+                </small>
+            </div>
+            <div class="mb-3">
+              <label for="discount" class="form-label">Product Discount</label>
+              <input type="number" class="form-control" id="discount" formControlName="discount" aria-describedby="mobileHelp">
+              <small class="form-text text-danger" *ngIf="isError('discount')">
+                    Please provide valid product discount.
+                </small>
+            </div>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Product Quantity</label>
+              <input type="number" class="form-control" id="quantity" formControlName="quantity" aria-describedby="mobileHelp">
+              <small class="form-text text-danger" *ngIf="isError('quantity')">
+                    Please provide valid product quantity.
+                </small>
+            </div>
+            <ngb-alert *ngIf="isInvalid" [type]="'danger'">Sorry something wend wrong.</ngb-alert>
+            <ngb-alert *ngIf="isSuccess" [type]="'success'">New product created.</ngb-alert>
+            <div class="text-center">
+                <button type="submit" (click)="onSubmit()" class="btn btn-primary ">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+
+

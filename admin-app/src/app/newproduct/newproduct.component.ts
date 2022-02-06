@@ -14,6 +14,7 @@ export class NewproductComponent implements OnInit {
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
     image: ['', [Validators.required]],
+    fileSource: ['', [Validators.required]],
     price: ['', [Validators.required]],
     discount: ['', [Validators.required]],
     rating: [5],
@@ -33,17 +34,41 @@ export class NewproductComponent implements OnInit {
     return this.productform.controls[field].invalid && (this.isSubmited || this.productform.controls[field].dirty || this.productform.controls[field].touched)
   }
 
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.productform.patchValue({
+        fileSource: file
+      });
+    }
+  }
+
   onSubmit(){
-    
     this.isSuccess = false;
     this.isSubmited = true;
     this.isInvalid = false;
     if(this.productform.valid){
-      this.api.createProduct(this.productform.value).subscribe((data: any)=>{
-        this.isSuccess = true;
+      //Upload image
+      const formData = new FormData();
+      formData.append('image', this.productform.get('fileSource')?.value);
+      this.api.uploadImage(formData).subscribe((data:any)=>{
+        if(data && data.filename){
+          // Collect image path
+          let product = this.productform.value;
+          delete product.fileSource;
+          product.image = data.filename;
+          // Create product
+          this.api.createProduct(product).subscribe((data: any)=>{
+            this.isSuccess = true;
+            this.productform.reset();
+            this.isSubmited = false;
+          });
+        }else{
+          this.isSuccess = false;
+        }
       });
     }else{
-      console.log("Please provide valid information");
+      console.log("Please provide valid inproductproductformation");
     }
     
   }

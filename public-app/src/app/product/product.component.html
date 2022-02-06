@@ -1,0 +1,27 @@
+<section class="product1" id="product">
+
+    <h1 class="heading2">Our <span>Products</span> </h1>
+
+    <div class="box-container1" >
+        <div class="box1"  *ngFor="let prd of productList; index as i">
+            <div class="col-12 tag-slant ">
+               Get {{prd.discount}}% OFF
+            </div>
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img src="{{host+'/images/'+prd.image}}" class="img-responsive" alt="">
+            <h3 class="course-title">{{prd.name}}</h3>
+            <p class="course-caption">{{prd.description}}</p>
+            <div class="price">₹{{getDiscountedPrice(prd)}} <span> ₹{{prd.price}} </span> </div>              
+            <button type="submit" class="btn ">Add to cart</button>
+        </div>
+
+
+
+    </div>
+
+</section>
+

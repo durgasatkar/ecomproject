@@ -1,0 +1,74 @@
+<div class="mb-2">
+    <nav class="navbar sticky-top navbar-expand-lg ">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+          </button>
+      <!-- <button class="navbar-toggler" type="button"
+              (click)="toggleNavbar()">
+        <span class="fas fa-bars"></span>
+      </button> -->
+    
+    
+      <div class="collapse navbar-collapse cnav" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a type="button" class="nav-link " aria-current="page" routerLink="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="nav-link " aria-current="page" routerLink="allProducts">Products</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="nav-link " aria-current="page" routerLink="allProducts">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="nav-link  " routerLink="about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="nav-link  " routerLink="contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-brand" href="#">
+        <div class="icons">
+            <div id="cart-btn" class="fas fa-shopping-cart"></div>
+            <a href="./login.html" class="dropdown"><div id="login-btn" class="fas fa-user  dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"></div>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item btn" *ngIf="isLoggedIn()" (click)="logout()">Logout</a></li>
+                    <li><a class="dropdown-item btn" *ngIf="!isLoggedIn()" routerLink="login">Login</a></li>
+                </ul>
+            </a>
+            <div id="fav-btn" class="fas fa-heart"></div>
+        </div>
+    </div>
+    </nav>
+  </div>
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">Navbar</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>  -->
+  

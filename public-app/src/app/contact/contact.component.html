@@ -1,0 +1,65 @@
+<div class="page_header_title"> 
+    <h1>Contact Us</h1>
+    </div>
+    <div class="block"> 
+        <div class="container">
+            <div class="card mb-0">
+                <div class="card-body">
+                    <div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 pb-4 pb-lg-0">
+                                <h4 class="card-title">
+                                    Our Address
+                                </h4>
+                                    <div >
+                                        <p> B-8, Tata Coumpound,<br> 
+                                            S V road, Near fire station Andheri West, <br> 
+                                            Mumbai - 400058<br> Email: sanvedan.sd@gmail.com<br> 
+                                            Phone Number: (+91) 738 580 7119 </p>
+                                        <p><strong >Opening Hours</strong><br> 
+                                            Mon to Sat 10:00am - 06:00pm<br></p>
+                                        <p><strong>Comment</strong><br> 
+                                            Feel free to contact us any time. You can visit us on above address, can call us or leave message. 
+                                        </p>
+                                    </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <h4 class="card-title">
+                                    Leave us a Message
+                                </h4>
+                                <form [formGroup]="cntform">
+                                    <div class="form-row">
+                                      <div class="form-group col-md-6">
+                                        <label for="inputname">Name</label>
+                                        <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
+                                        <small  class="form-text text-danger" *ngIf="isError('name')">Please provide name.</small>
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label for="inputemail">Email</label>
+                                        <input type="email" class="form-control" formControlName="email" placeholder="Enter Email">
+                                        <small  class="form-text text-danger" *ngIf="isError('email')">Please provide valid email.</small>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="inputsubject">Contact Number</label>
+                                      <input type="text" class="form-control" formControlName="contactNo" placeholder="Enter Contact No">
+                                      <small  class="form-text text-danger" *ngIf="isError('contactNo')">Please provide valid contact number.</small>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="inputAddress2">Your Query</label>
+                                      <textarea type="text"  rows="4" class="form-control" formControlName="query" placeholder="Write Query"></textarea>
+                                      <small  class="form-text text-danger" *ngIf="isError('query')">Please write your query.</small>
+                                    </div>
+                                    <ngb-alert *ngIf="isInvalid" [type]="'danger'">Sorry something wend wrong.</ngb-alert>
+                                    <ngb-alert *ngIf="isSuccess" [type]="'success'">Thank you for contacting us.</ngb-alert>
+                                    <button type="submit" class="btn " (click)="onSubmit()">Send Message</button>
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    

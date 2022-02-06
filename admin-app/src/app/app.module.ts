@@ -9,9 +9,13 @@ import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewproductComponent } from './newproduct/newproduct.component';
+import { ProductComponent } from './product/product.component';
+import { ContactComponent } from './contact/contact.component';
+import { JwtInterceptor } from './jwt.interceptor';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +25,26 @@ import { NewproductComponent } from './newproduct/newproduct.component';
     MenuComponent,
     LoginComponent,
     DashboardComponent,
-    NewproductComponent
+    NewproductComponent,
+    ProductComponent,
+    ContactComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

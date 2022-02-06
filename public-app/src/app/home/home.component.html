@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-12 p-0 col-lg-12">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active ">
+            <img src="../../assets/1.jpg" alt="..." width="100%" height="350px">
+          </div>
+          <div class="carousel-item picsum-img-wrapper">
+            <img src="../../assets/3.jpg" width="100%" height="350px" alt="...">
+          </div>
+          <div class="carousel-item picsum-img-wrapper">
+            <img src="../../assets/2.jpg" width="100%" height="350px" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      </div>
+      </div>
+</div>
+
+<section class="product1" id="product">
+
+    <h1 class="heading2">Best <span>sellers</span> </h1>
+
+    <div class="box-container1" >
+        <div class="box1"  *ngFor="let prd of productList; index as i">
+            <div class="col-12 tag-slant ">
+                Get {{prd.discount}}% OFF
+            </div>
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img src="{{host+'/images/'+prd.image}}" class="img-responsive" alt="">
+            <h3 class="course-title">{{prd.name}}</h3>
+            <p class="course-caption">{{prd.description}}</p>
+            <div class="price">₹{{getDiscountedPrice(prd)}} <span> ₹{{prd.price}} </span> </div>              
+            <button type="submit" class="btn ">Add to cart</button>
+        </div>
+
+
+
+    </div>
+
+</section>

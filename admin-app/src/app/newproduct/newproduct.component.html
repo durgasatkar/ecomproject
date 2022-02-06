@@ -21,12 +21,12 @@
                 </small>
             </div>
             <div class="mb-3">
-              <label for="img" class="form-label">Product Image</label>
-              <input type="text" class="form-control" id="img" formControlName="image" aria-describedby="mobileHelp">
-              <small class="form-text text-danger" *ngIf="isError('image')">
-                    Please provide valid product image.
-                </small>
-            </div>
+                <label for="img" class="form-label">Product Image</label>
+                <input type="file" class="form-control" id="img" (change)="onFileChange($event)" formControlName="image" aria-describedby="mobileHelp">
+                <small class="form-text text-danger" *ngIf="isError('image')">
+                      Please provide valid product image.
+                  </small>
+              </div>
             <div class="mb-3">
               <label for="price" class="form-label">Product Price</label>
               <input type="number" class="form-control" id="price" formControlName="price" aria-describedby="mobileHelp">

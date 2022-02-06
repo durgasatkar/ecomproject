@@ -1,0 +1,35 @@
+<div class="container-fluid heading1">
+    <h2>add contacts</h2>
+</div>
+<div class="row">
+    <div class="col-12">
+<!-- <form> -->
+    <div class="form-group form-inline">
+        Full text search: <input class="form-control ml-2" type="text" [ngModel]="searchText" (ngModelChange)="search($event)"/>
+    </div>
+  <!-- </form> -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+        <th scope="col">Sr No</th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Email</th>
+        <th scope="col">Query</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cnt of recordsToShow; index as i">
+            
+            <th scope="row">{{ i + 1 }}</th>
+            <td> <ngb-highlight [result]="cnt.id| number" [term]="filter.value"></ngb-highlight></td>
+            <td><ngb-highlight [result]="cnt.name" [term]="filter.value"></ngb-highlight></td>
+            <td><ngb-highlight [result]="cnt.contactNo" [term]="filter.value"></ngb-highlight></td>
+            <td><ngb-highlight [result]="cnt.email" [term]="filter.value"></ngb-highlight></td>
+            <td><ngb-highlight [result]="cnt.query" [term]="filter.value"></ngb-highlight></td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
