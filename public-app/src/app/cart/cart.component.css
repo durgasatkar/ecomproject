@@ -1,0 +1,47 @@
+table{
+   border-color: rgb(201, 195, 195);
+   border-width: 1px;
+   border-style: solid;
+   width: 60rem;
+   margin-left: 5rem;
+   margin-right: 5rem;
+   
+}
+th{
+    background-color: rgb(235, 232, 232);
+}
+
+td {
+vertical-align: middle;
+text-align: center;
+  }
+  td div{
+  padding-left: 20px;
+  text-align: center;
+  }
+
+.fa-times {
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .fa-times:hover {
+    color: black;
+  }
+
+  .column{
+     padding: 5px;
+    text-align: center;
+  }
+
+  .page_header_title{
+    padding-top: 6px;
+    text-align: center;
+}
+@media (max-width: 767px){
+.page-header__title {
+    padding-top: 2px;
+}}
+#quantity {  width:70px; border: 1px solid #555; text-align: center;}
+

@@ -1,12 +1,16 @@
+*{
+  text-transform: capitalize;
+}
 nav{
     background-color: #f5e617 ;
 }
 
 .cnav ul li a{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: black;
-    font-weight: 700;
+    font-weight: 500;
     border-radius: .5rem;
+    margin: 5px;
 }
 .cnav ul li a:hover{
     color: black;
@@ -38,3 +42,110 @@ background-color: white;
  .icons div:hover {
     color: #0f0f0d;
   }
+
+  .badge {
+    position: relative;
+    top: -18px;
+    left: -10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+  }
+
+ .shopping-cart {
+    position: absolute;
+    top: 115%;
+    /* right: -105%; */
+    background: #fff;
+    border-radius: .5rem;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    width: 20rem;
+    padding: 1rem;
+    right: 2rem;
+    -webkit-transition: .4s linear;
+    transition: .4s linear;
+    display: initial;
+    z-index: 100;
+    text-align: center;
+  }
+  
+ .shopping-cart .active {
+    right: 2rem;
+    -webkit-transition: .4s linear;
+    transition: .4s linear;
+    display: initial;
+    z-index: 100;
+  }
+  
+   .shopping-cart .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1.0rem;
+    margin-bottom: 1.1rem;
+    position: relative;
+  }
+  
+  .shopping-cart .box .fa-times {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+  }
+  
+ .shopping-cart .box .fa-times:hover {
+    color: #bac34e;
+  }
+  
+ .shopping-cart .box img {
+    height: 5rem;
+  }
+  
+  .shopping-cart .box .content h3 {
+    font-size: 1.3rem;
+    padding-bottom: .2rem;
+    color: #222;
+  }
+  
+  .shopping-cart .box .content span {
+    font-size: 1.0rem;
+    color: #666;
+  }
+  
+ .shopping-cart .box .content span.multiply {
+    margin: 0 .5rem;
+  }
+  
+  .shopping-cart .total {
+    color: #666;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+   .shopping-cart .total span {
+    color: #222;
+  }
+  
+.shopping-cart .btn {
+    text-align: center;
+    background-color: rgb(241, 123, 12);
+    color: black;
+    border-radius: 0px;
+margin: 10px;
+  }
+  .shopping-cart .btn:hover {
+    background-color:black;
+    color: #fff;
+  }
+  
+
+ 

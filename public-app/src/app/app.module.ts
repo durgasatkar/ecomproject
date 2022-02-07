@@ -15,6 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JwtInterceptor } from './jwt.interceptor';
 import { HeaderComponent } from './header/header.component';
+import { CartComponent } from './cart/cart.component';
+import { RegisterComponent } from './register/register.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { HeaderComponent } from './header/header.component';
     ProductComponent,
     FooterComponent,
     MenueComponent,
-    HeaderComponent
+    HeaderComponent,
+    CartComponent,
+    RegisterComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

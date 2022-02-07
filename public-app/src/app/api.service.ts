@@ -18,6 +18,14 @@ export class ApiService {
     return this.httpClient.post( environment.host+'/auth/login',cred);
   }
 
+  profile(){
+    return this.httpClient.get( environment.host+'/profile');
+  }
+
+  register(cred: any){
+    return this.httpClient.post( environment.host+'/auth/register',cred);
+  }
+
   uploadImage(formData: FormData){
     return this.httpClient.post(environment.host+'/uploadFile',formData);
   }

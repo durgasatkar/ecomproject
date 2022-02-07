@@ -1,1 +1,34 @@
-<p>login works!</p>
+
+    <div class="w3_login">
+        <h3><a type="text"routerLink="/login" >Sign In </a></h3>
+<!---728x90--->
+        <div class="w3_login_module">
+            <div class="module form-module">
+              <div class="form">
+                <h2>Login to your account</h2>
+                <form  [formGroup]="loginForm">
+                    <div class="mb-3">
+                        <label for="inputMobileNO" class="form-label">Mobile Number</label>
+                        <input type="text" class="form-control" id="inputMobileNO" formControlName="username" aria-describedby="mobileHelp">
+                        <div id="mobileHelp" class="form-text" *ngIf="!isError('username')">Please enter registered mobile number.</div>
+                        <small class="form-text text-danger" *ngIf="isError('username')">
+                              Please provide valid Mobile number.
+                          </small>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+                      </div>
+                      <small class="form-text text-danger" *ngIf="isError('password')">
+                          Please provide password.
+                      </small>
+                      <ngb-alert *ngIf="isInvalid" [type]="'danger'">Invalid credentials.</ngb-alert>
+                      <input type="submit" (click)="onSubmit()" value="Submit">
+                </form>
+              </div>
+              <div class="register"><a type="text" routerLink="/register">New user? Register here</a></div>
+              <div class="cta"><a type="text" href="#">Forgot your password?</a></div>
+            </div>
+        </div>
+    </div>    
+

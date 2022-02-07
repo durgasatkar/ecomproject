@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-12 text-center">
+        <h3>Order Checkout</h3>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-12">
+        <h6>User Information</h6>
+        <b>Name : </b> 
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-12">
+        <h6>Delivery Address</h6>
+        <!-- Collect address -->
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-12">
+        <h6>Payment information</h6>
+        <b>Payment Amout : </b> {{getPrice()}}<br>
+        <h6>Payment Method</h6>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod">
+            <label class="form-check-label" for="paymentMethod">
+              Cash on delivery.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod" checked>
+            <label class="form-check-label" for="paymentMethod">
+              Pay on delivery
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod">
+            <label class="form-check-label" for="paymentMethod">
+              Online payment
+            </label>
+          </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-6"></div>
+    <div class="col-4"></div>
+    <div class="col-2 float-right">
+        <button class="btn btn-primary btn-small float-right">Place Order</button>
+    </div>
+</div>

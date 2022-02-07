@@ -1,0 +1,36 @@
+<div class="w3_login">
+    <h3><a href="./sign-up.html">Sign Up</a></h3>
+<!---728x90--->
+    <div class="w3_login_module">
+        <div class="module form-module">
+          <div class="form">
+            <h2>Create an account</h2>
+            <form  [formGroup]="form">
+                <div class="mb-3">
+                  <label for="inputMobileNO" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="inputMobileNO" formControlName="name" aria-describedby="mobileHelp">
+                  <small class="form-text text-danger" *ngIf="isError('name')">
+                        Please provide your name.
+                    </small>
+                </div>
+                <div class="mb-3">
+                  <label for="inputMobileNO" class="form-label">Mobile Number</label>
+                  <input type="text" class="form-control" id="inputMobileNO" formControlName="mobile" aria-describedby="mobileHelp">
+                  <small class="form-text text-danger" *ngIf="isError('mobile')">
+                        Please provide valid Mobile number.
+                    </small>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+                </div>
+                <small class="form-text text-danger" *ngIf="isError('password')">
+                    Please provide password.
+                </small>
+                <ngb-alert *ngIf="isInvalid" [type]="'danger'">Invalid credentials.</ngb-alert>
+                <input type="submit" (click)="onSubmit()" value="Submit">
+            </form>
+          </div>
+        </div>
+    </div>
+ </div>   

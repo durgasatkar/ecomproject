@@ -16,3 +16,8 @@ export interface Contact{
     contactNo:string;
     query:string;
 }
+
+export interface CartItem{
+    product: Product;
+    qty: number;
+}

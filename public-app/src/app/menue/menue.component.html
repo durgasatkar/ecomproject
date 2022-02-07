@@ -10,7 +10,7 @@
       </button> -->
     
     
-      <div class="collapse navbar-collapse cnav" id="navbarTogglerDemo03">
+      <div class="collapse navbar-collapse justify-content-center cnav" id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a type="button" class="nav-link " aria-current="page" routerLink="">Home</a>
@@ -31,7 +31,9 @@
       </div>
       <div class="navbar-brand" href="#">
         <div class="icons">
-            <div id="cart-btn" class="fas fa-shopping-cart"></div>
+            <div id="cart-btn" class="fas fa-shopping-cart" (click)="classactivate()" >
+            </div>
+            <span class="badge" *ngIf="getCartCount() > 0">{{getCartCount()}}</span>
             <a href="./login.html" class="dropdown"><div id="login-btn" class="fas fa-user  dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"></div>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item btn" *ngIf="isLoggedIn()" (click)="logout()">Logout</a></li>
@@ -39,7 +41,24 @@
                 </ul>
             </a>
             <div id="fav-btn" class="fas fa-heart"></div>
+            <span class="badge">3</span>
         </div>
+            <div class="shopping-cart " *ngIf="activate" (blur)="classdeactivate()">
+                <div class="box" *ngFor="let record of list; index as i">
+                    <i class="fas fa-times" (click)="onDelete(record.product)"></i>
+                    <img src="{{host+'/images/'+record.product.image}}" alt="">
+                    <div class="content">
+                        <h3>{{record.product.name}}</h3>
+                        <span class="quantity">{{record.qty}}</span>
+                        <span class="multiply">x</span>
+                        <span class="price">{{getDiscountedPrice(record.product)}}</span>
+                    </div>
+                </div>
+                <hr>
+                <h3 class="total"> total : <span>{{ getPrice() }}</span> </h3>
+                <a href="#" class="btn" routerLink="/checkout">checkout</a>
+                <a href="#" class="btn" routerLink="/cart">view cart</a>
+            </div>
     </div>
     </nav>
   </div>

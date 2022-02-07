@@ -1,0 +1,65 @@
+<div class="page_header_title"> 
+    <h1>Shopping Cart</h1>
+</div>
+<div class="container">
+    <div class="container column">
+    <table class="table" [cellPadding]="5">
+        <thead>
+        <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+        <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of list; index as i">
+            
+            <!-- <td>
+                {{record.id}}
+            </td> -->
+            <td>
+                <img src="{{host+'/images/'+record.product.image}}" height="70" width="70" alt="Product Image">
+                
+            </td>
+            <td>
+                {{record.product.name}}
+            </td>
+            <td>
+                {{getDiscountedPrice(record.product)}}
+            </td>
+            <td>
+                <div class="form-group form-inline" [formGroup]="form">
+                 <input min="1" formControlName="quantity1" class="form-control ml-2" type="number" id="quantity" [ngModel]="record.qty" (change)="search(i)"/>
+                </div>
+            </td>
+            <td>
+                {{getsingletotal(record.product,record.qty)}}
+            </td>
+            <td>
+                <i class="fas fa-times" (click)="onDelete(record.product)"></i>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-6"></div>
+    <div class="col-4"></div>
+    <div class="col-2 float-right">
+        <b>Total Price : </b>  ₹ {{ getPrice() }}
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-6"></div>
+    <div class="col-4"></div>
+    <div class="col-2 float-right">
+        <button class="btn btn-primary btn-small float-right" routerLink="/checkout">Checkout</button>
+
+    </div>
+</div>
