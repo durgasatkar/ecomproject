@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Contact, Product } from './interfaces.def';
+import { Contact, Order, Product } from './interfaces.def';
 
 import { SessionService } from './session.service';
 
@@ -40,8 +40,28 @@ export class ApiService {
     return this.httpClient.post(environment.host+'/contact',prd);
   }
 
+  createAddress(data: any){
+    return this.httpClient.post(environment.host+'/address',data);
+  }
+
+  createOrder(data: any){
+    return this.httpClient.post(environment.host+'/order',data);
+  }
+
   getProducts(){
     return this.httpClient.get<Product[]>(environment.host+'/product');
+  }
+
+  getOrder(oId:any){
+    return this.httpClient.get<Order>(environment.host+'/order/'+oId);
+  }
+
+  getOrders(){
+    return this.httpClient.get<Order[]>(environment.host+'/order');
+  }
+
+  updateOrder(o:Order){
+    return this.httpClient.patch<Order>(environment.host+'/order/'+o.id, o);
   }
 
   getContacts(){

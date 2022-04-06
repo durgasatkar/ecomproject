@@ -36,7 +36,7 @@ export class ApiService {
   }
 
   getspecificproduct(id:number){
-    return this.httpClient.get<Product[]>(environment.host+'/product/'+id);
+    return this.httpClient.get<Product>(environment.host+'/product/'+id);
   }
 
   updateProduct(prd: Product,id:number){

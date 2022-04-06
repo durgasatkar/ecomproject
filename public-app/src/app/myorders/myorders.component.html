@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-12 text-center">
+        <h3>My Orders</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+<!-- <form> -->
+
+  <!-- </form> -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+        <th scope="col">Sr No</th>
+        <th scope="col">Order Id</th>
+        <th scope="col">Order Amount</th>
+        <th scope="col">Order Status</th>
+        <th scope="col">Payment Type</th>
+        <th scope="col">Controls</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of recordsToShow ; index as i">
+            
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+                {{record.id}}
+            </td>
+            <td>
+                {{record.orderAmount}}
+            </td>
+            <td>
+                <div [innerHtml]="getOrderStatus(record.status)"></div>
+            </td>
+            <td>
+                {{record.orderType}}
+            </td>
+            <td>
+                <a type="button" *ngIf="record.status > 0 && record.status < 3" class="btn btn-sm btn-danger" (click)="onCancel(record)">Cancel</a>
+                <a type="button" class="btn btn-sm btn-info" routerLink="{{'/invoice/'+record.id}}">View</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

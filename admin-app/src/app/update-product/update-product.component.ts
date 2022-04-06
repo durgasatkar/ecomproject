@@ -36,15 +36,13 @@ export class UpdateProductComponent implements OnInit {
     if(id){
       this.api.getspecificproduct(parseInt(id)).subscribe((data)=>{
         console.log("Data", data);
-        let pid=data[0].id
-        let name=data[0].name
-        this.productform.controls['id'].setValue(pid);
-        this.productform.controls['name'].setValue(name);
-        this.productform.controls['description'].setValue(data[0].description);
-        this.productform.controls['image'].setValue(data[0].image);
-        this.productform.controls['price'].setValue(data[0].price);
-        this.productform.controls['discount'].setValue(data[0].discount);
-        this.productform.controls['quantity'].setValue(data[0].quantity);
+        this.productform.controls['id'].setValue(data.id);
+        this.productform.controls['name'].setValue(data.name);
+        this.productform.controls['description'].setValue(data.description);
+        // this.productform.controls['image'].setValue(data.image);
+        this.productform.controls['price'].setValue(data.price);
+        this.productform.controls['discount'].setValue(data.discount);
+        this.productform.controls['quantity'].setValue(data.quantity);
       });
     }
   }

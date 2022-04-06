@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.session.getToken()){
-      this.router.navigateByUrl("/dashboard");
+      this.router.navigateByUrl("/home");
     }
   }
 

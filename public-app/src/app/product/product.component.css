@@ -91,7 +91,10 @@
     top:.1rem; right:-6rem;
     z-index: 100;
   }
-  
+  .product1 .box-container1 .box1:hover{
+    border-color: #FF8C00;
+    border-width: 2px;
+  }
   .product1 .box-container1 .box1:hover .icons{
     right:1rem;
   }

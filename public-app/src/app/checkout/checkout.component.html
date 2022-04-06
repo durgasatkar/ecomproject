@@ -1,53 +1,154 @@
 <div class="row">
-    <div class="col-12 text-center">
-        <h3>Order Checkout</h3>
-    </div>
+  <div class="col-12 text-center">
+      <h3>Order Checkout</h3>
+  </div>
 </div>
 
 <div class="row mt-2">
-    <div class="col-12">
-        <h6>User Information</h6>
-        <b>Name : </b> 
-    </div>
+  <div class="col-12">
+      <h6>User Information</h6>
+      <b>Name : </b> {{userInfo.name}} ,<br>
+      <b>Mobile : </b> {{userInfo.mobile}}
+  </div>
 </div>
 
 <div class="row mt-2">
-    <div class="col-12">
-        <h6>Delivery Address</h6>
-        <!-- Collect address -->
-    </div>
-</div>
+  <div class="col-6">
+      <h6>Delivery Address</h6>
+      <form  [formGroup]="form">
+          <div class="mb-3">
+            <label for="inputMobileNO" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="inputMobileNO" formControlName="name" aria-describedby="mobileHelp">
+            <small class="form-text text-danger" *ngIf="isError('name')">
+                  Please provide valid name.
+              </small>
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">Address Type</label>
+            <select class="form-select form-control" formControlName="addressType">
+              <option value="Home" selected>Home</option>
+              <option value="Office">Office</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="desc" formControlName="addressType" aria-describedby="mobileHelp"> -->
+            <small class="form-text text-danger" *ngIf="isError('addressType')">
+                  Please provide valid product contact number.
+              </small>
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Flat/House number</label>
+            <input type="text" class="form-control" id="img" formControlName="addrLine1" aria-describedby="mobileHelp">
+            <small class="form-text text-danger" *ngIf="isError('addrLine1')">
+                  Please provide valid addrLine1.
+              </small>
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Building/Society name</label>
+            <input type="text" class="form-control" id="img" formControlName="addrLine2" aria-describedby="mobileHelp">
+            <small class="form-text text-danger" *ngIf="isError('addrLine2')">
+                  Please provide valid addrLine2.
+              </small>
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Area</label>
+            <input type="text" class="form-control" id="img" formControlName="area" aria-describedby="mobileHelp">
+            <small class="form-text text-danger" *ngIf="isError('area')">
+                  Please provide valid area.
+              </small>
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Landmard</label>
+            <input type="text" class="form-control" id="img" formControlName="landmark" aria-describedby="mobileHelp">
+            <small class="form-text text-danger" *ngIf="isError('landmark')">
+                  Please provide valid landmark.
+              </small>
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" formControlName="city" aria-describedby="mobileHelp">
+            <small class="form-text text-danger" *ngIf="isError('city')">
+                  Please provide valid city.
+              </small>
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Pin Code</label>
+            <input type="text" class="form-control" id="pin" formControlName="pin" aria-describedby="mobileHelp">
+            <small class="form-text text-danger" *ngIf="isError('pin')">
+                  Please provide valid pin.
+              </small>
+          </div>
+          <!-- <ngb-alert *ngIf="isInvalid" [type]="'danger'">Sorry something wend wrong.</ngb-alert> -->
+          <!-- <ngb-alert *ngIf="isSuccess" [type]="'success'">Thank you for contacting us.</ngb-alert> -->
+          <!-- <button type="submit" (click)="onSubmit()" class="btn btn-primary">Submit</button> -->
+      </form>
+  </div>
+  <div class="col-6">
+      <h6>Order information</h6>
+      <ul>
+          <li *ngFor="let itm of cartItems">
+              {{itm.product.name}}
+          </li>
+      </ul>
+      <b>Total Amout : </b> {{getPrice()}}<br><br>
+      <h6>Payment Method</h6>
 
-<div class="row mt-2">
-    <div class="col-12">
-        <h6>Payment information</h6>
-        <b>Payment Amout : </b> {{getPrice()}}<br>
-        <h6>Payment Method</h6>
+      <div class="form-check">
+          <input class="form-check-input" (click)="setPaymentMethod('cod')"  type="radio" value="cod" name="flexRadioDefault" id="paymentMethod">
+          <label class="form-check-label" for="paymentMethod">
+            Cash on delivery.
+          </label>
+        </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod">
-            <label class="form-check-label" for="paymentMethod">
-              Cash on delivery.
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod" checked>
-            <label class="form-check-label" for="paymentMethod">
-              Pay on delivery
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod">
-            <label class="form-check-label" for="paymentMethod">
-              Online payment
-            </label>
-          </div>
-    </div>
+          <input class="form-check-input" (click)="setPaymentMethod('pod')" type="radio" value="pod" name="flexRadioDefault" id="paymentMethod" checked>
+          <label class="form-check-label" for="paymentMethod">
+            Pay on delivery
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" (click)="setPaymentMethod('online')" type="radio" value="online" name="flexRadioDefault" id="paymentMethod">
+          <label class="form-check-label" for="paymentMethod">
+            Online payment
+          </label>
+        </div>
+  </div>
 </div>
 
+<!-- <div class="row mt-2">
+  <div class="col-12">
+      <h6>Order information</h6>
+      <ul>
+          <li *ngFor="let itm of cartItems">
+              {{itm.product.name}}
+          </li>
+      </ul>
+      <b>Total Amout : </b> {{getPrice()}}<br><br>
+      <h6>Payment Method</h6>
+      <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod">
+          <label class="form-check-label" for="paymentMethod">
+            Cash on delivery.
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod" checked>
+          <label class="form-check-label" for="paymentMethod">
+            Pay on delivery
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="paymentMethod">
+          <label class="form-check-label" for="paymentMethod">
+            Online payment
+          </label>
+        </div>
+  </div>
+</div> -->
+
 <div class="row mt-2">
-    <div class="col-6"></div>
-    <div class="col-4"></div>
-    <div class="col-2 float-right">
-        <button class="btn btn-primary btn-small float-right">Place Order</button>
-    </div>
+  <div class="col-6">
+      <button class="btn btn-primary btn-small float-left">Back</button>
+  </div>
+  <div class="col-4"></div>
+  <div class="col-2 float-right">
+      <button class="btn btn-primary btn-small float-right" (click)="onSubmit()">Place Order</button>
+  </div>
 </div>

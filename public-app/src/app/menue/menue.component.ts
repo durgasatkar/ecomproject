@@ -71,9 +71,9 @@ scroll = (): void => {
   }
 
   onDelete(e: Product){
-    
+    console.log("On delete product",e);
+    this.cart.removeFromCart(e);
   }
-
   getCartCount(){
     return this.cart.getCount();
   }

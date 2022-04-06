@@ -18,6 +18,8 @@ import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { MyordersComponent } from './myorders/myorders.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HeaderComponent,
     CartComponent,
     RegisterComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    InvoiceComponent,
+    MyordersComponent
   ],
   imports: [
     BrowserModule,

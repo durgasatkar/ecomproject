@@ -20,7 +20,7 @@ export class JwtInterceptor implements HttpInterceptor {
         if (err instanceof HttpErrorResponse) {
             if (err.status === 401) {
                 this.session.deleteToken();
-                this.router.navigateByUrl("login");
+                this.router.navigateByUrl("/login");
             }
         }
     }));

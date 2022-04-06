@@ -1,0 +1,79 @@
+<div class="page_header_title"> 
+    <h1>Order Details</h1>
+</div>
+<div class="row mt-2">
+    <div class="col-6">
+        <h6>Billing Information</h6>
+        <b>Name : </b> {{od.user.name}} ,<br>
+        <b>Mobile : </b> {{od.user.mobile}}
+    </div>
+    <div class="col-6">
+        <h6>Shipping Address</h6>
+        <b>Name : </b> {{od.address.name}} ,<br>
+        <b>Address : </b> {{od.address.addrLine1}}, {{od.address.addrLine2}},
+        {{od.address.landmark}}, {{od.address.area}}, <br>
+        {{od.address.city}}, {{od.address.pin}}
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-6">
+        <b>Order Status : </b> 
+        <span [innerHtml]="getOrderStatus()"></span>
+    </div>
+    <div class="col-6">  
+        <b>Order Type : </b> {{getOrderType()}}
+    </div>
+</div>
+
+<div class="container column">
+    <div class="container ">
+    <table class="table" [cellPadding]="5">
+        <thead>
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of od.orderDetails; index as i">
+            
+            <!-- <td>
+                {{record.id}}
+            </td> -->
+            <td>
+                {{record.name}}
+            </td>
+            <td>
+                {{getDiscountedPrice(record)}}
+            </td>
+            <td>
+                {{record.quantity}}
+            </td>
+            <td>
+                {{getsingletotal(record,record.quantity)}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-6"></div>
+    <div class="col-4"></div>
+    <div class="col-2 float-right">
+        <b>Total Price : </b>  ₹ {{ od.orderAmount }}
+    </div>
+</div>
+
+<div class="row mt-3" *ngIf="od.status > 0 && od.status < 3">
+    <div class="col-6"></div>
+    <div class="col-4"></div>
+    <div class="col-2 float-right">
+        <button class="btn btn-danger btn-small float-right" (click)="onCancel()">Cancel Order</button>
+    </div>
+</div>
+</div>
+
+
+

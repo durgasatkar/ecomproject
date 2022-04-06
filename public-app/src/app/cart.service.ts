@@ -28,14 +28,29 @@ updatecart(i:number,no:number){
     return this.cartItems;
   }
 
-  removeFromCart(){
+  removeFromCart(p: Product){
+    let index = -1;
+    for(let i=0;i< this.cartItems.length;i++){
+      if(this.cartItems[i].product.id === p.id){
+        index = i;
+      }
+    }
 
+    if(index > -1){
+      this.cartItems.splice(index,1);
+      this.save();
+    }
   }
 
+  clearCart(){
+    this.cartItems = [];
+    this.save();
+    // localStorage.removeItem('shoppingCartItems');
+  }
   getDiscountedPrice(p: Product){
     return p.price - (p.price * p.discount / 100);
   }
-  getsingletotal(p: Product,qty:number){
+  getsingletotal(p: any,qty:number){
     return (p.price - (p.price * p.discount / 100))*qty;
   }
 

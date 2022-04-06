@@ -38,9 +38,15 @@ let AuthService = class AuthService {
         return null;
     }
     async login(user) {
-        const payload = { username: user.username, sub: user.userId };
+        const payload = { mobile: user.mobile, name: user.name, id: user.id };
         return {
             access_token: this.jwtService.sign(payload),
+            expires_in: "36000s",
+            user: {
+                id: user.id,
+                name: user.name,
+                mobile: user.mobile
+            }
         };
     }
     async register(user) {
